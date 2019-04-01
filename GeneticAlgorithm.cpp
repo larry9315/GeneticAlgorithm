@@ -62,8 +62,12 @@ vector<Tour> GeneticAlgorithm::createCrossList(const vector<Tour>& population) {
         vector<int> random_indexes;
         for (int k = 0; k < NUMBER_OF_PARENTS - 1; k++) {
             int index = rand() % CITIES_IN_TOUR;
+            while (find(random_indexes.begin(), random_indexes.end(), index) != random_indexes.end()) {
+                index = rand() % CITIES_IN_TOUR;
+            }
             random_indexes.push_back(index);
         }
+
         random_indexes.push_back(CITIES_IN_TOUR - 1);
         sort(random_indexes.begin(), random_indexes.end());
 
