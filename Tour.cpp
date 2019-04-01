@@ -64,6 +64,7 @@ void Tour::printRoute() {
     for (City* city : cityVec) {
         cout << "City: " << city->getName() << " -> ";
     }
+    cout << "City: " << cityVec[0]->getName();
 }
 
 // check if the city with the same name is in the list of the tour

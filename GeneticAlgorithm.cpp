@@ -64,12 +64,12 @@ vector<Tour> GeneticAlgorithm::createCrossList(const vector<Tour>& population) {
             int index = rand() % CITIES_IN_TOUR;
             random_indexes.push_back(index);
         }
-        random_indexes.push_back(CITIES_IN_TOUR);
+        random_indexes.push_back(CITIES_IN_TOUR - 1);
         sort(random_indexes.begin(), random_indexes.end());
 
         Tour childTour;
         for (int z = 0; z < parentTours.size(); z++) {
-            for (int h = 0; h < random_indexes[z]; h++) {
+            for (int h = 0; h <= random_indexes[z]; h++) {
                 if (!childTour.isContainCity(parentTours[z].getCity(h))) {
                     childTour.addCity(parentTours[z].getCity(h));
                 }
