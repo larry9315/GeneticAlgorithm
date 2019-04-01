@@ -5,10 +5,7 @@
 #include "GeneticAlgorithm.hpp"
 #include <vector>
 
-const int CITIES_IN_TOUR = 32;
-const int POPULATION_SIZE = 32;
-const int ITERATIONS = 1000;
-
+//Constants are on GeneticAlgorithm.hpp
 
 int main() {
 

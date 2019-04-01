@@ -3,16 +3,18 @@
 //
 
 #include "Tour.hpp"
+
+const int CITIES_IN_TOUR = 32;
+const int POPULATION_SIZE = 32;
+const int ITERATIONS = 1000;
 const int PARENT_POOL_SIZE = 5;
-const int MUTATION_RATE = .15;
+const double MUTATION_RATE = .15;
 const int NUMBER_OF_PARENTS = 2;
 
 class GeneticAlgorithm {
 private:
 
     static Tour chooseParents(vector<Tour> population);
-
-    static Tour mergeTour(Tour tour1, Tour tour2);
 
 public:
 

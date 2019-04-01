@@ -24,10 +24,12 @@ Tour::Tour(vector<City>& cities) {
 
 }
 
+//randomly shuffles the city vectors
 void Tour::randomize() {
     random_shuffle(cityVec.begin(), cityVec.end());
 }
 
+// uses pythagorean theorm to calculate the distance
 double Tour::calculateDistance(const City& cityStart, const City& cityEnd) {
     double xDistance = abs(cityStart.getX() - cityEnd.getX());
     double yDistance = abs(cityStart.getY() - cityEnd.getY());
@@ -35,6 +37,7 @@ double Tour::calculateDistance(const City& cityStart, const City& cityEnd) {
     return sqrt(pow(xDistance, 2.0) + pow(yDistance, 2.0));
 }
 
+// calculates the fitness of the tour
 void Tour::assignFitness() {
     int i;
     fitness = 0;
@@ -56,13 +59,14 @@ void Tour::addCity(City* city) {
     cityVec.push_back(city);
 }
 
+//print the route
 void Tour::printRoute() {
     for (City* city : cityVec) {
         cout << "City: " << city->getName() << " -> ";
     }
-//    cout << "fitness: " << fitness << endl;
 }
 
+// check if the city with the same name is in the list of the tour
 bool Tour::isContainCity(City *city) {
     for (int i = 0; i < cityVec.size(); i++) {
         if (cityVec[i]->getName() == city->getName()) {
@@ -72,12 +76,17 @@ bool Tour::isContainCity(City *city) {
     return false;
 }
 
-void Tour::mutate() {
+// smudge some cities around depending on mutation rate and evaluate the fitness
+void Tour::mutate(double mutationRate) {
     for (int i = 0; i < cityVec.size() - 1; i++) {
         double r = ((double) rand() / (RAND_MAX));
-        if (r < 0.15) {
+        if (r < mutationRate) {
             iter_swap(cityVec.begin() + i, cityVec.begin() + i + 1);
         }
     }
     assignFitness();
+}
+
+void Tour::printSize() {
+    cout << cityVec.size() << endl;
 }

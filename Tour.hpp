@@ -34,7 +34,9 @@ public:
 
     bool isContainCity(City* city);
 
-    void mutate();
+    void mutate(double mutationRate);
+
+    void printSize();
 
 
 };
