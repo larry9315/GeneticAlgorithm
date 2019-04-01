@@ -29,7 +29,7 @@ void Tour::randomize() {
     random_shuffle(cityVec.begin(), cityVec.end());
 }
 
-// uses pythagorean theorm to calculate the distance
+// uses pythagorean theorem to calculate the distance
 double Tour::calculateDistance(const City& cityStart, const City& cityEnd) {
     double xDistance = abs(cityStart.getX() - cityEnd.getX());
     double yDistance = abs(cityStart.getY() - cityEnd.getY());
